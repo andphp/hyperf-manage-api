@@ -16,3 +16,17 @@ Router::addRoute(['GET', 'POST', 'HEAD'], '/', 'App\Controller\IndexController@i
 Router::get('/favicon.ico', function () {
     return '';
 });
+
+/**
+ * ================================ 管理后台 start ======================================
+ */
+
+Router::post('/manager/login', 'App\Controller\Manager\AuthController@login');
+
+Router::addGroup('/manager',function (){
+    require BASE_PATH . '/routes/manage.php';
+},['middleware' => [App\Middleware\AdminMiddleware::class]]);
+
+/**
+ * ================================ 管理后台 end ======================================
+ */

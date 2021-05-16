@@ -11,5 +11,7 @@ declare(strict_types=1);
  */
 return [
     'http' => [
+        // 数组内配置您的全局中间件，顺序根据该数组的顺序
+        \App\Middleware\CorsMiddleware::class, //跨域
     ],
 ];
